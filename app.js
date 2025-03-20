@@ -7,6 +7,7 @@ let difficulty_id;
 
 const btnStart = document.querySelector('#btnStart');
 const btnNext = document.querySelector('#btnNext');
+const btnNextLevel = document.querySelector('#btnNextLevel');
 const btnAnswer = document.querySelector('#btnAnswer');
 const btnRestart = document.querySelector('#btnRestart');
 const selectDifficulty = document.querySelector('#selectDifficulty');
@@ -36,10 +37,6 @@ async function displayDifficulty() {
 }
 window.addEventListener('load', displayDifficulty);
 
-function updateDifficultyID() {
-  difficulty_id = selectDifficulty.value;
-}
-
 btnStart.addEventListener('click', startQuiz);
 async function startQuiz() {
   startScreen.style.display = 'none';
@@ -49,7 +46,8 @@ async function startQuiz() {
 }
 
 async function fetchQuestions() {
-  let url = `./questions.json?questions=${difficulty_id}&mount=10`;
+  difficulty_id = selectDifficulty.value;
+  let url = `./questions.json?questions=${difficulty_id}`;
   try {
     let response = await fetch(url);
     questions = await response.json();
@@ -58,12 +56,12 @@ async function fetchQuestions() {
     console.log('Error', error);
   }
 }
-
+// Preluam Intrebarea ???
 function showQuestion() {
   resetState();
-  updateDifficultyID();
-  let questionCurrent = questions[currentQuestionIndex];
-  document.querySelector('#textQuestion').innerText = questionCurrent.question;
+  let questionCurrent = questions.difficulty[currentQuestionIndex];
+  console.log(questionCurrent);
+  document.querySelector('#textQuestion').innerText = questionCurrent;
 
   questionCurrent.answers.forEach((answer) => {
     let button = document.createElement('button');
@@ -72,40 +70,25 @@ function showQuestion() {
     if (answer.corect) {
       button.dataset.corect = answer.corect;
     }
-    button.addEventListener('click', selectAnswer);
     btnAnswer.appendChild(button);
+    button.addEventListener('click', selectAnswer);
   });
 }
 
 function resetState() {
   btnNext.style.display = 'none';
+  btnNextLevel.style.display = 'none';
   btnRestart.style.display = 'none';
   btnAnswer.innerHTML = '';
 }
 
-function selectAnswer(e) {
-  let selectedButton = e.target;
-  let corect = selectedButton.dataset.corect === 'true';
-  if (corect) {
-    selectedButton.classList.add('corect');
-    score++;
-  } else {
-    selectedButton.classList.add('wrong');
-  }
-
-  Array.from(btnAnswer.children).forEach((button) => {
-    if (button.dataset.corect === 'true') {
-      button.classList.add('corect');
-    }
-    button.disabled = true;
-  });
-
-  btnNext.style.display = 'block';
-}
+function selectAnswer() {}
 
 btnNext.addEventListener('click', nextQuestion);
-
 function nextQuestion() {}
+
+btnNextLevel.addEventListener('click', showLevelResult);
+function showLevelResult() {}
 
 function showResult() {}
 

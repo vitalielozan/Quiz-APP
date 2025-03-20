@@ -73,6 +73,7 @@ p {
 }
 
 .btn-next,
+.btn-next-level,
 .btn-restart {
   display: none;
   margin-top: 20px;
