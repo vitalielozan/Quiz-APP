@@ -13,6 +13,7 @@ const selectDifficulty = document.querySelector('#selectDifficulty');
 const startScreen = document.querySelector('#startScreen');
 const quizScreen = document.querySelector('#quizScreen');
 const textQuestion = document.querySelector('#textQuestion');
+const textExplanation = document.querySelector('#textExplanation');
 const resultScreen = document.querySelector('#resultScreen');
 const scoreDisplay = document.querySelector('#score');
 
@@ -81,6 +82,8 @@ function showQuestion() {
       btnAnswer.appendChild(button);
       button.addEventListener('click', selectAnswer);
     });
+  } else {
+    endLevel();
   }
 }
 
@@ -103,3 +106,5 @@ function showResult() {}
 
 btnRestart.addEventListener('click', restartQuiz);
 function restartQuiz() {}
+
+function endLevel() {}

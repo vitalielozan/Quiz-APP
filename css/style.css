@@ -20,6 +20,12 @@ body {
 h1 {
   margin-bottom: 20px;
   font-size: 24px;
+  font-weight: 900;
+}
+h2 {
+  margin: 15px auto;
+  font-size: 18px;
+  font-weight: 700;
 }
 .form-select {
   font-size: 16px;
@@ -31,7 +37,7 @@ h1 {
 }
 
 p {
-  margin-bottom: 15px;
+  margin: 15px auto;
 }
 .btn-start {
   display: block;
@@ -54,13 +60,14 @@ p {
 .btn-answer {
   border-radius: 10px;
   border: none;
-  padding: 10px 10px;
+  padding: 10px;
+  margin: 10px;
 }
 .btn {
   color: #000;
   font-weight: 300;
-  padding: 15px;
-  margin-right: 10px;
+  padding: 10px;
+  margin: 10px;
   border-radius: 10px;
   cursor: pointer;
 }
