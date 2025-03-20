@@ -1,0 +1,346 @@
+{
+    "difficulty": [
+        {
+            "aesy": [
+                {
+                    "id": 11,
+                    "question": "Care este capitala Franței?",
+                    "explanation": "Paris este capitala Franței și unul dintre cele mai vizitate orașe din lume.",
+                    "answers": [
+                            {"text": "Berlin", "corect": false},
+                            {"text": "Paris", "corect": true},
+                            {"text": "Madrid", "corect": false},
+                            {"text": "Roma", "corect": false}
+                    ]
+                },
+                {
+                    "id": 12,
+                    "question": "Care este cel mai mare ocean din lume?",
+                    "explanation": "",
+                    "answers": [
+                        {"text": "Oceanul Atlantic", "corect": false},
+                        {"text": "Oceanul Pacific", "corect": true},
+                        {"text": "Oceanul Indian", "corect": false},
+                        {"text": "Oceanul inghetat de Nord", "corect": false}
+                ]
+                },
+                {
+                    "id": 13,
+                    "question": "Care este cel mai lung fluviu din Europa?",
+                    "explanation": "",
+                    "answers": [
+                        {"text": "Dunărea", "corect": true},
+                        {"text": "Rinul", "corect": false},
+                        {"text": "Volga", "corect": false},
+                        {"text": "Tamisa", "corect": false}
+                ]
+                },
+                {
+                    "id": 14,
+                    "question": "Care este cel mai mare continent din lume?",
+                    "explanation": "",
+                    "answers": [
+                        {"text": "Africa", "corect": true},
+                        {"text": "Asia", "corect": false},
+                        {"text": "America de Nord", "corect": false},
+                        {"text": "Europa", "corect": false}
+                    ]
+                },
+                {
+                    "id": 15,
+                    "question": "Care este capitala Japoniei?",
+                    "explanation": "",
+                    "answers": [
+                        {"text": "Beijing", "corect": false},
+                        {"text": "Seul", "corect": false},
+                        {"text": "Tokyo", "corect": true},
+                        {"text": "Bangkok", "corect": false}
+                    ]
+                },
+                {
+                    "id": 16,
+                    "question": "Care este cel mai înalt munte din Europa?",
+                    "explanation": "",
+                    "answers": [
+                        {"text": "Mont Blanc", "corect": true},
+                        {"text": "Matterhorn", "corect": false},
+                        {"text": "Elbrus", "corect": false},
+                        {"text": "Triglav", "corect": false}
+                    ]
+                },
+                {
+                    "id": 17,
+                    "question": "Care este cel mai mare lac din lume?",
+                    "explanation": "",
+                    "answers": [
+                        {"text": "Lacul Superior", "corect": false},
+                        {"text": "Lacul Victoria", "corect": false},
+                        {"text": "Marea Caspică", "corect": true},
+                        {"text": "Lacul Baikal", "corect": false}
+                    ]
+                },
+                {
+                    "id": 18,
+                    "question": "Care este capitala Australiei?",
+                    "explanation": "",
+                    "answers": [
+                        {"text": "Sydney", "corect": false},
+                        {"text": "Melbourne", "corect": false},
+                        {"text": "Canberra", "corect": true},
+                        {"text": "Brisbane", "corect": false}
+                    ]
+                },
+                {
+                    "id": 19,
+                    "question": "Care este cel mai mare desert din Africa?",
+                    "explanation": "",
+                    "answers": [
+                        {"text": "Deșertul Kalahari", "corect": false},
+                        {"text": "Deșertul Sahara", "corect": true},
+                        {"text": "Deșertul Namib", "corect": false},
+                        {"text": "Deșertul Arab", "corect": false}
+                    ]
+                },
+                {
+                    "id": 110,
+                    "question": "Care este cel mai mic continent din lume?",
+                    "explanation": "",
+                    "answers": [
+                        {"text": "Antarctica", "corect": false},
+                        {"text": "Australia", "corect": true},
+                        {"text": "Europa", "corect": false},
+                        {"text": "America de Sud", "corect": false}
+                    ]
+                }
+            ]
+        },
+        {
+            "medium": [
+                {
+                    "id": 21,
+                    "question": "Care este cel mai adânc punct din ocean?",
+                    "explanation": "",
+                    "answers": [
+                        {"text": "Fosa Marianelor", "corect": true},
+                        {"text": "Fosa Tonga", "corect": false},
+                        {"text": "Fosa Puerto Rico", "corect": false},
+                        {"text": "Fosa Java", "corect": false}
+                    ]
+                },
+                {
+                    "id": 22,
+                    "question": "Care este cel mai mare vulcan activ din lume?",
+                    "explanation": "",
+                    "answers": [
+                        {"text": "Mauna Loa", "corect": true},
+                        {"text": "Mount St. Helens", "corect": false},
+                        {"text": "Mount Etna", "corect": false},
+                        {"text": "Mount Vesuvius", "corect": false}
+                    ]
+                },
+                {
+                    "id": 23,
+                    "question": " Care este cel mai mare stat din lume după suprafață?",
+                    "explanation": "",
+                    "answers": [
+                        {"text": "China", "corect": false},
+                        {"text": "Canada", "corect": false},
+                        {"text": "Rusia", "corect": true},
+                        {"text": "Statele Unite ale Americii", "corect": false}
+                    ]
+                },
+                {
+                    "id": 24,
+                    "question": "Care este cel mai mare fluviu din Africa?",
+                    "explanation": "",
+                    "answers": [
+                        {"text": "Nil", "corect": true},
+                        {"text": "Congo", "corect": false},
+                        {"text": "Niger", "corect": false},
+                        {"text": "Zambezi", "corect": false}
+                    ]
+                },
+                {
+                    "id": 25,
+                    "question": "Care este cel mai mare lac din Africa?",
+                    "explanation": "",
+                    "answers": [
+                        {"text": "Lacul Victoria", "corect": true},
+                        {"text": "Lacul Tanganyika", "corect": false},
+                        {"text": "Lacul Malawi", "corect": false},
+                        {"text": "Lacul Chad", "corect": false}
+                    ]
+                },
+                {
+                    "id": 26,
+                    "question": "Care este cel mai mare desert din Asia?",
+                    "explanation": "",
+                    "answers": [
+                        {"text": "Deșertul Gobi", "corect": true},
+                        {"text": "Deșertul Arab", "corect": false},
+                        {"text": "Deșertul Thar", "corect": false},
+                        {"text": "Deșertul Karakum", "corect": false}
+                    ]
+                },
+                {
+                    "id": 27,
+                    "question": "Care este cel mai mare stat din lume după populație?",
+                    "explanation": "",
+                    "answers": [
+                        {"text": "India", "corect": false},
+                        {"text": "China", "corect": true},
+                        {"text": "Statele Unite ale Americii", "corect": false},
+                        {"text": "Indonezia", "corect": false}
+                    ]
+                },
+                {
+                    "id": 28,
+                    "question": "Care este cel mai mare golf din lume?",
+                    "explanation": "",
+                    "answers": [
+                        {"text": "Golful Mexic", "corect": false},
+                        {"text": "Golful Bengal", "corect": true},
+                        {"text": "Golful Guinea", "corect": false},
+                        {"text": "Golful Alaska", "corect": false}
+                    ]
+                },
+                {
+                    "id": 29,
+                    "question": "Care este cel mai mare arhipelag din lume?",
+                    "explanation": "",
+                    "answers": [
+                        {"text": "Indonezia", "corect": true},
+                        {"text": "Filipine", "corect": false},
+                        {"text": "Japonia", "corect": false},
+                        {"text": "Marea Britanie", "corect": false}
+                    ]
+                },
+                {
+                    "id": 210,
+                    "question": "Care este cel mai mare fluviu din America de Sud?",
+                    "explanation": "",
+                    "answers": [
+                        {"text": "Amazon", "corect": true},
+                        {"text": "Paraná", "corect": false},
+                        {"text": "Orinoco", "corect": false},
+                        {"text": "São Francisco", "corect": false}
+                    ]
+                }
+            ]
+        },
+        {
+            "difficult": [
+                {
+                    "id": 31,
+                    "question": "Care este cel mai mare bazin hidrografic din lume?",
+                    "explanation": "",
+                    "answers": [
+                        {"text": "Bazinul Amazon", "corect": true},
+                        {"text": "Bazinul Congo", "corect": false},
+                        {"text": "Bazinul Mississippi", "corect": false},
+                        {"text": "Bazinul Nil", "corect": false}
+                    ]
+                },
+                {
+                    "id": 32,
+                    "question": "Care este cel mai mare ghețar din lume?",
+                    "explanation": "",
+                    "answers": [
+                        {"text": "Ghețarul Perito Moreno", "corect": true},
+                        {"text": "Ghețarul Lambert", "corect": false},
+                        {"text": "Ghețarul Vatnajökull", "corect": false},
+                        {"text": "Ghețarul Siachen", "corect": false}
+                    ]
+                },
+                {
+                    "id": 33,
+                    "question": "Care este cel mai mare stat insular din lume?",
+                    "explanation": "",
+                    "answers": [
+                        {"text": "Indonezia", "corect": false},
+                        {"text": "Australia", "corect": true},
+                        {"text": "Marea Britanie", "corect": false},
+                        {"text": "Japonia", "corect": false}
+                    ]
+                },
+                {
+                    "id": 34,
+                    "question": "Care este cel mai mare lac artificial din lume?",
+                    "explanation": "",
+                    "answers": [
+                        {"text": "Lacul Volta", "corect": false},
+                        {"text": "Lacul Kariba", "corect": true},
+                        {"text": "Lacul Nasser", "corect": false},
+                        {"text": "Lacul Bratsk", "corect": false}
+                    ]
+                },
+                {
+                    "id": 35,
+                    "question": "Care este cel mai mare fluviu din Asia?",
+                    "explanation": "",
+                    "answers": [
+                        {"text": "Yangtze", "corect": true},
+                        {"text": "Gange", "corect": false},
+                        {"text": "Mekong", "corect": false},
+                        {"text": "Brahmaputra", "corect": false}
+                    ]
+                },
+                {
+                    "id": 36,
+                    "question": "Care este cel mai mare vulcan din Sistemul Solar?",
+                    "explanation": "",
+                    "answers": [
+                        {"text": "Olympus Mons", "corect": true},
+                        {"text": "Mauna Loa", "corect": false},
+                        {"text": "Mount Etna", "corect": false},
+                        {"text": "Mount Vesuvius", "corect": false}
+                    ]
+                },
+                {
+                    "id": 37,
+                    "question": "Care este cel mai mare stat fără ieșire la mare?",
+                    "explanation": "",
+                    "answers": [
+                        {"text": "Kazahstan", "corect": true},
+                        {"text": "Mongolia", "corect": false},
+                        {"text": "Uzbekistan", "corect": false},
+                        {"text": "Nepal", "corect": false}
+                    ]
+                },
+                {
+                    "id": 38,
+                    "question": "Care este cel mai mare fluviu din Australia?",
+                    "explanation": "",
+                    "answers": [
+                        {"text": "Murray", "corect": false},
+                        {"text": "Darling", "corect": true},
+                        {"text": "Murrumbidgee", "corect": false},
+                        {"text": "Lachlan", "corect": false}
+                    ]
+                },
+                {
+                    "id": 39,
+                    "question": "Care este cel mai mare stat din America de Sud după suprafață?",
+                    "explanation": "",
+                    "answers": [
+                        {"text": "Brazilia", "corect": true},
+                        {"text": "Argentina", "corect": false},
+                        {"text": "Peru", "corect": false},
+                        {"text": "Columbia", "corect": false}
+                    ]
+                },
+                {
+                    "id": 310,
+                    "question": "Care este cel mai adanc lac din lume?",
+                    "explanation": "",
+                    "answers": [
+                        {"text": "Michigan", "corect": false},
+                        {"text": "Marea Caspică", "corect": false},
+                        {"text": "Balkhash", "corect": false},
+                        {"text": "Baical", "corect": true}
+                    ]
+                }
+            ]
+        }  
+    ]
+}
