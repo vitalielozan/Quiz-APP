@@ -76,8 +76,8 @@ function showQuestion() {
       let button = document.createElement('button');
       button.innerText = answer.text;
       button.classList.add('btn');
-      if (answer.corect) {
-        button.dataset.corect = answer.corect;
+      if (answer.correct) {
+        button.dataset.correct = answer.correct;
       }
       btnAnswer.appendChild(button);
       button.addEventListener('click', selectAnswer);
@@ -94,4 +94,29 @@ function resetState() {
   btnAnswer.innerHTML = '';
 }
 
-function selectAnswer() {}
+function selectAnswer(e) {
+  const selectedButton = e.target;
+  const isCorrect = selectedButton.dataset.correct === 'true';
+  Array.from(btnAnswer.children).forEach((button) => {
+    if (button.dataset.correct === 'true') {
+      button.classList.add('corect');
+    } else if (button === selectedButton && !isCorrect) {
+      button.classList.add('wrong');
+    }
+    button.disabled = true;
+  });
+  if (isCorrect) {
+    score++;
+    levelScores[currentLevelIndex]++;
+  }
+  const currentLevel = questions.difficulty[currentLevelIndex];
+  const levelQuestions = Object.values(currentLevel)[0];
+  const questionCurrent = levelQuestions[currentQuestionIndex];
+
+  const explanation = questionCurrent.explanation;
+  textExplanation.innerHTML = explanation;
+  btnNext.style.display = 'block';
+}
+
+btnNext.addEventListener('click', nextQuestion);
+function nextQuestion() {}
