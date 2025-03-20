@@ -1,9 +1,8 @@
 let currentQuestionIndex = 0;
-let difficultyIndex = 0;
 let score = 0;
 let questions = [];
-let quizDifficulty = 'easy';
-let difficulty_id;
+let levelScores = [0, 0, 0];
+let currentLevelIndex = 0;
 
 const btnStart = document.querySelector('#btnStart');
 const btnNext = document.querySelector('#btnNext');
@@ -13,7 +12,9 @@ const btnRestart = document.querySelector('#btnRestart');
 const selectDifficulty = document.querySelector('#selectDifficulty');
 const startScreen = document.querySelector('#startScreen');
 const quizScreen = document.querySelector('#quizScreen');
+const textQuestion = document.querySelector('#textQuestion');
 const resultScreen = document.querySelector('#resultScreen');
+const scoreDisplay = document.querySelector('#score');
 
 async function getDifficulty() {
   try {
@@ -26,11 +27,11 @@ async function getDifficulty() {
 }
 
 async function displayDifficulty() {
-  quizDifficulty = await getDifficulty();
-  quizDifficulty.difficulty.forEach((val) => {
+  const quizDifficulty = await getDifficulty();
+  quizDifficulty.difficulty.forEach((val, index) => {
     let valoare = Object.keys(val).toString();
     let option = document.createElement('option');
-    option.setAttribute('value', `${valoare}`);
+    option.setAttribute('value', `${index}`);
     option.textContent = valoare;
     selectDifficulty.appendChild(option);
   });
@@ -42,37 +43,45 @@ async function startQuiz() {
   startScreen.style.display = 'none';
   quizScreen.style.display = 'block';
   await fetchQuestions();
+  currentLevelIndex = parseInt(selectDifficulty.value);
+  currentQuestionIndex = 0;
+  score = 0;
+  levelScores = [0, 0, 0];
+
   showQuestion();
 }
 
 async function fetchQuestions() {
-  difficulty_id = selectDifficulty.value;
-  let url = `./questions.json?questions=${difficulty_id}`;
   try {
-    let response = await fetch(url);
+    let response = await fetch('./questions.json');
     questions = await response.json();
     return questions;
   } catch (error) {
     console.log('Error', error);
   }
 }
-// Preluam Intrebarea ???
+
 function showQuestion() {
   resetState();
-  let questionCurrent = questions.difficulty[currentQuestionIndex];
-  console.log(questionCurrent);
-  document.querySelector('#textQuestion').innerText = questionCurrent;
+  const currentLevel = questions.difficulty[currentLevelIndex];
+  const levelQuestions = Object.values(currentLevel)[0];
+  console.log(levelQuestions);
 
-  questionCurrent.answers.forEach((answer) => {
-    let button = document.createElement('button');
-    button.innerText = answer.text;
-    button.classList.add('btn');
-    if (answer.corect) {
-      button.dataset.corect = answer.corect;
-    }
-    btnAnswer.appendChild(button);
-    button.addEventListener('click', selectAnswer);
-  });
+  if (currentQuestionIndex < levelQuestions.length) {
+    const questionCurrent = levelQuestions[currentQuestionIndex];
+    textQuestion.innerText = questionCurrent.question;
+
+    questionCurrent.answers.forEach((answer) => {
+      let button = document.createElement('button');
+      button.innerText = answer.text;
+      button.classList.add('btn');
+      if (answer.corect) {
+        button.dataset.corect = answer.corect;
+      }
+      btnAnswer.appendChild(button);
+      button.addEventListener('click', selectAnswer);
+    });
+  }
 }
 
 function resetState() {
