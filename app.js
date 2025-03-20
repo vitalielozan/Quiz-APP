@@ -95,16 +95,3 @@ function resetState() {
 }
 
 function selectAnswer() {}
-
-btnNext.addEventListener('click', nextQuestion);
-function nextQuestion() {}
-
-btnNextLevel.addEventListener('click', showLevelResult);
-function showLevelResult() {}
-
-function showResult() {}
-
-btnRestart.addEventListener('click', restartQuiz);
-function restartQuiz() {}
-
-function endLevel() {}

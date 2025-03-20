@@ -60,11 +60,11 @@
                 {
                     "id": 16,
                     "question": "What is the highest mountain in Europe?",
-                    "explanation": "Mont Blanc is the highest mountain in Europe, with an elevation of 4,808 meters above sea level.",
+                    "explanation": "Elbrus is the highest mountain in Europe, with an elevation of 4,808 meters above sea level.",
                     "answers": [
-                        {"text": "Mont Blanc", "correct": true},
+                        {"text": "Mont Blanc", "correct": false},
                         {"text": "Matterhorn", "correct": false},
-                        {"text": "Elbrus", "correct": false},
+                        {"text": "Elbrus", "correct": true},
                         {"text": "Triglav", "correct": false}
                     ]
                 },

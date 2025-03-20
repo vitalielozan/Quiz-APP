@@ -1,19 +1,22 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: bisque;
+  background-image: url('../assets/world.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   height: 100vh;
   margin: 0;
 }
 
 .page-container {
   background: rgb(46, 133, 176);
-  padding: 20px;
+  padding: 10px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 400px;
+  width: 50%;
   text-align: center;
 }
 
