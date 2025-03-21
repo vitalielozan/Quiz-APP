@@ -12,23 +12,26 @@ const btnRestart = document.querySelector('#btnRestart');
 const selectDifficulty = document.querySelector('#selectDifficulty');
 const startScreen = document.querySelector('#startScreen');
 const quizScreen = document.querySelector('#quizScreen');
+const levelResultScreen = document.querySelector('#levelResultScreen');
 const textQuestion = document.querySelector('#textQuestion');
 const textExplanation = document.querySelector('#textExplanation');
-const resultScreen = document.querySelector('#resultScreen');
+const textLevelResult = document.querySelector('#textLevelResult');
+const paragrafLevelResult = document.querySelector('#paragrafLevelResult');
+const finalResultScreen = document.querySelector('#finalResultScreen');
 const scoreDisplay = document.querySelector('#score');
 
-async function getDifficulty() {
+async function fetchQuestions() {
   try {
-    let response = await fetch('./questions.json');
-    const result = await response.json();
-    return result;
+    const response = await fetch('./questions.json');
+    questions = await response.json();
+    return questions;
   } catch (error) {
-    console.log(error);
+    console.log('Error', error);
   }
 }
 
 async function displayDifficulty() {
-  const quizDifficulty = await getDifficulty();
+  const quizDifficulty = await fetchQuestions();
   quizDifficulty.difficulty.forEach((val, index) => {
     let valoare = Object.keys(val).toString();
     let option = document.createElement('option');
@@ -52,22 +55,10 @@ async function startQuiz() {
   showQuestion();
 }
 
-async function fetchQuestions() {
-  try {
-    let response = await fetch('./questions.json');
-    questions = await response.json();
-    return questions;
-  } catch (error) {
-    console.log('Error', error);
-  }
-}
-
 function showQuestion() {
   resetState();
   const currentLevel = questions.difficulty[currentLevelIndex];
   const levelQuestions = Object.values(currentLevel)[0];
-  console.log(levelQuestions);
-
   if (currentQuestionIndex < levelQuestions.length) {
     const questionCurrent = levelQuestions[currentQuestionIndex];
     textQuestion.innerText = questionCurrent.question;
@@ -119,4 +110,85 @@ function selectAnswer(e) {
 }
 
 btnNext.addEventListener('click', nextQuestion);
-function nextQuestion() {}
+function nextQuestion() {
+  currentQuestionIndex++;
+  textExplanation.innerHTML = '';
+  showQuestion();
+}
+
+function endLevel() {
+  startScreen.style.display = 'none';
+  quizScreen.style.display = 'none';
+  levelResultScreen.style.display = 'block';
+  textLevelResult.innerHTML = `Level ${getLavelName(
+    currentLevelIndex
+  )} was finalised!`;
+  paragrafLevelResult.innerHTML = `Yuor score for this level: ${
+    levelScores[currentLevelIndex]
+  } / ${getLevelQuestions(currentLevelIndex).length}`;
+  if (currentLevelIndex < 2) {
+    btnNextLevel.style.display = 'inline-block';
+    btnRestart.style.display = 'inline-block';
+  } else {
+    showFinalResults();
+  }
+}
+
+btnNextLevel.addEventListener('click', nextLevel);
+function nextLevel() {
+  currentLevelIndex++;
+  currentQuestionIndex = 0;
+  levelResultScreen.style.display = 'none';
+  quizScreen.style.display = 'block';
+  showQuestion();
+}
+
+function showFinalResults() {
+  quizScreen.style.display = 'none';
+  finalResultScreen.style.display = 'block';
+  btnRestart.style.display = 'block';
+  finalResultScreen.innerHTML = `
+    <h2>Congratulation ! You has finished all levels:</h2>
+    <p>Your score: ${score} / ${getTotalQuestions()}</p>
+    <p>Your level score:</p>
+    <ul>
+      <li>Easy: ${levelScores[0]} / ${getLevelQuestions(0).length}</li>
+      <li>Medium: ${levelScores[1]} / ${getLevelQuestions(1).length}</li>
+      <li>Difficult: ${levelScores[2]} / ${getLevelQuestions(2).length}</li>
+    </ul>
+  `;
+}
+
+function getlevelScores() {}
+
+btnRestart.addEventListener('click', restartQuiz);
+function restartQuiz() {
+  finalResultScreen.style.display = 'none';
+  levelResultScreen.style.display = 'none';
+  startScreen.style.display = 'block';
+}
+
+function getLavelName(levelIndex) {
+  switch (levelIndex) {
+    case 0:
+      return 'Easy';
+    case 1:
+      return 'Medium';
+    case 2:
+      return 'Difficult';
+    default:
+      return '';
+  }
+}
+
+function getLevelQuestions(levelIndex) {
+  return Object.values(questions.difficulty[levelIndex])[0];
+}
+
+function getTotalQuestions() {
+  return (
+    getLevelQuestions(0).length +
+    getLevelQuestions(1).length +
+    getLevelQuestions(2).length
+  );
+}

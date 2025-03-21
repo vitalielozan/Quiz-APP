@@ -10,24 +10,27 @@
   <body>
     <div class="page-container">
       <div id="startScreen" class="start-screen">
-        <h1>Quiz de Științe Geografice</h1>
-        <p>Alege grad dificultate:</p>
+        <h1>Geography Science Quiz</h1>
+        <p>Choose difficulty level:</p>
         <select class="form-select" id="selectDifficulty"></select>
         <button id="btnStart" class="btn-start">Start</button>
       </div>
 
       <div id="quizScreen" class="quiz-screen">
         <h2 id="textQuestion"></h2>
-        <button id="btnAnswer" class="btn-answer">Answer</button>
+        <button id="btnAnswer" class="btn-answer"></button>
         <h2 id="textExplanation"></h2>
-        <button id="btnNext" class="btn-next">Next</button>
-        <button id="btnNextLevel" class="btn-next-level">Next Level</button>
+        <button id="btnNext" class="btn-next">Next Questions</button>
       </div>
 
-      <div id="resultScreen" class="result-screen">
-        <p id="score"></p>
+      <div id="levelResultScreen" class="level-result-screen">
+        <h2 id="textLevelResult"></h2>
+        <p id="paragrafLevelResult"></p>
+        <button id="btnNextLevel" class="btn-next-level">Next Level</button>
         <button id="btnRestart" class="btn-restart">Restart</button>
       </div>
+
+      <div id="finalResultScreen" class="final-result-screen"></div>
     </div>
     <script src="app.js"></script>
   </body>
