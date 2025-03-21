@@ -101,3 +101,6 @@ p {
 .level-result-screen {
   display: none;
 }
+ul {
+  list-style-type: none;
+}
