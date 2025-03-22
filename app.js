@@ -18,7 +18,6 @@ const textExplanation = document.querySelector('#textExplanation');
 const textLevelResult = document.querySelector('#textLevelResult');
 const paragrafLevelResult = document.querySelector('#paragrafLevelResult');
 const finalResultScreen = document.querySelector('#finalResultScreen');
-const scoreDisplay = document.querySelector('#score');
 
 async function fetchQuestions() {
   try {
@@ -74,7 +73,7 @@ function showQuestion() {
       button.addEventListener('click', selectAnswer);
     });
   } else {
-    endLevel();
+    setTimeout(endLevel, 2000);
   }
 }
 
@@ -130,7 +129,7 @@ function endLevel() {
     btnNextLevel.style.display = 'inline-block';
     btnRestart.style.display = 'inline-block';
   } else {
-    showFinalResults();
+    setTimeout(showFinalResults, 3000);
   }
 }
 
