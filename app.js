@@ -55,34 +55,32 @@ async function startQuiz() {
 }
 
 function showQuestion() {
-  resetState();
-  const currentLevel = questions.difficulty[currentLevelIndex];
-  const levelQuestions = Object.values(currentLevel)[0];
-  if (currentQuestionIndex < levelQuestions.length) {
-    const questionCurrent = levelQuestions[currentQuestionIndex];
-    textQuestion.innerText = questionCurrent.question;
-
-    questionCurrent.answers.forEach((answer) => {
-      let button = document.createElement('button');
-      button.innerText = answer.text;
-      button.classList.add('btn');
-      if (answer.correct) {
-        button.dataset.correct = answer.correct;
-      }
-      btnAnswer.appendChild(button);
-      button.addEventListener('click', selectAnswer);
-    });
-  } else {
-    setTimeout(endLevel, 2000);
-  }
+resetState();
+const currentLevel = questions.difficulty[currentLevelIndex];
+if (!currentLevel) return;
+const levelQuestions = Object.values(currentLevel)[0];
+if (currentQuestionIndex >= levelQuestions.length) {
+setTimeout(endLevel, 1000);
+return;
 }
+const questionCurrent = levelQuestions[currentQuestionIndex];
+textQuestion.innerText = questionCurrent.question;
+questionCurrent.answers.forEach((answer) => {
+const button = document.createElement('button');
+button.innerText = answer.text;
+button.classList.add('btn');
+if (answer.correct) button.dataset.correct = answer.correct;
+button.addEventListener('click', selectAnswer);
+btnAnswer.appendChild(button);
+});
+}
+
 
 function resetState() {
-  btnNext.style.display = 'none';
-  btnNextLevel.style.display = 'none';
-  btnRestart.style.display = 'none';
+  [btnNext, btnNextLevel, btnRestart].forEach((btn) => (btn.style.display = 'none'));
   btnAnswer.innerHTML = '';
 }
+
 
 function selectAnswer(e) {
   const selectedButton = e.target;
@@ -109,6 +107,7 @@ function selectAnswer(e) {
 }
 
 btnNext.addEventListener('click', nextQuestion);
+
 function nextQuestion() {
   currentQuestionIndex++;
   textExplanation.innerHTML = '';
@@ -129,7 +128,7 @@ function endLevel() {
     btnNextLevel.style.display = 'inline-block';
     btnRestart.style.display = 'inline-block';
   } else {
-    setTimeout(showFinalResults, 3000);
+    setTimeout(showFinalResults, 2000);
   }
 }
 
@@ -149,7 +148,7 @@ function showFinalResults() {
   finalResultScreen.innerHTML = `
     <h2>Congratulation ! You has finished all levels:</h2>
     <p>Your score: ${score} / ${getTotalQuestions()}</p>
-    <p>Your level score:</p>
+    <p>Your levels scores:</p>
     <ul>
       <li>Easy: ${levelScores[0]} / ${getLevelQuestions(0).length}</li>
       <li>Medium: ${levelScores[1]} / ${getLevelQuestions(1).length}</li>
@@ -157,6 +156,7 @@ function showFinalResults() {
     </ul>
   `;
 }
+
 
 function getlevelScores() {}
 
@@ -185,9 +185,7 @@ function getLevelQuestions(levelIndex) {
 }
 
 function getTotalQuestions() {
-  return (
-    getLevelQuestions(0).length +
-    getLevelQuestions(1).length +
-    getLevelQuestions(2).length
-  );
+  return questions.difficulty.reduce((sum, _, index) => sum + getLevelQuestions(index).length, 0);
+  
 }
+
