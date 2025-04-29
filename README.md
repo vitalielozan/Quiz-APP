@@ -2,7 +2,7 @@
 
 👀 I’m interested in Frontend Web developer
 
-🌱 I’m currently learning JavaScript
+🌱 I’m currently learning HTML&CSS, JavaScript, React
 
 ##Quiz-APP
 

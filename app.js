@@ -29,6 +29,7 @@ async function fetchQuestions() {
   }
 }
 
+window.addEventListener('load', displayDifficulty);
 async function displayDifficulty() {
   const quizDifficulty = await fetchQuestions();
   quizDifficulty.difficulty.forEach((val, index) => {
@@ -39,7 +40,6 @@ async function displayDifficulty() {
     selectDifficulty.appendChild(option);
   });
 }
-window.addEventListener('load', displayDifficulty);
 
 btnStart.addEventListener('click', startQuiz);
 async function startQuiz() {
@@ -55,32 +55,32 @@ async function startQuiz() {
 }
 
 function showQuestion() {
-resetState();
-const currentLevel = questions.difficulty[currentLevelIndex];
-if (!currentLevel) return;
-const levelQuestions = Object.values(currentLevel)[0];
-if (currentQuestionIndex >= levelQuestions.length) {
-setTimeout(endLevel, 1000);
-return;
+  resetState();
+  const currentLevel = questions.difficulty[currentLevelIndex];
+  if (!currentLevel) return;
+  const levelQuestions = Object.values(currentLevel)[0];
+  if (currentQuestionIndex >= levelQuestions.length) {
+    setTimeout(endLevel, 1000);
+    return;
+  }
+  const questionCurrent = levelQuestions[currentQuestionIndex];
+  textQuestion.innerText = questionCurrent.question;
+  questionCurrent.answers.forEach((answer) => {
+    const button = document.createElement('button');
+    button.innerText = answer.text;
+    button.classList.add('btn');
+    if (answer.correct) button.dataset.correct = answer.correct;
+    button.addEventListener('click', selectAnswer);
+    btnAnswer.appendChild(button);
+  });
 }
-const questionCurrent = levelQuestions[currentQuestionIndex];
-textQuestion.innerText = questionCurrent.question;
-questionCurrent.answers.forEach((answer) => {
-const button = document.createElement('button');
-button.innerText = answer.text;
-button.classList.add('btn');
-if (answer.correct) button.dataset.correct = answer.correct;
-button.addEventListener('click', selectAnswer);
-btnAnswer.appendChild(button);
-});
-}
-
 
 function resetState() {
-  [btnNext, btnNextLevel, btnRestart].forEach((btn) => (btn.style.display = 'none'));
+  [btnNext, btnNextLevel, btnRestart].forEach(
+    (btn) => (btn.style.display = 'none')
+  );
   btnAnswer.innerHTML = '';
 }
-
 
 function selectAnswer(e) {
   const selectedButton = e.target;
@@ -157,7 +157,6 @@ function showFinalResults() {
   `;
 }
 
-
 function getlevelScores() {}
 
 btnRestart.addEventListener('click', restartQuiz);
@@ -185,7 +184,8 @@ function getLevelQuestions(levelIndex) {
 }
 
 function getTotalQuestions() {
-  return questions.difficulty.reduce((sum, _, index) => sum + getLevelQuestions(index).length, 0);
-  
+  return questions.difficulty.reduce(
+    (sum, _, index) => sum + getLevelQuestions(index).length,
+    0
+  );
 }
-
